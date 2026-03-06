@@ -6,9 +6,9 @@ resource "aws_cloudwatch_metric_alarm" "replication_lag" {
   evaluation_periods  = 1
   metric_name         = "ReplicationLatency"
   namespace           = "AWS/S3"
-  period              = 60  #CloudWatch evaluates every 1 minute
+  period              = 300  # CloudWatch evaluates every 5 minutes 60 to 300
   statistic           = "Maximum"
-  threshold           = 60   #triggers if replication takes more than 60 seconds
+  threshold           = 60   # triggers if replication takes more than 60 seconds
   alarm_description   = "Alarm when S3 replication latency exceeds 1 minute"
 
   dimensions = {
@@ -26,7 +26,7 @@ resource "aws_cloudwatch_metric_alarm" "replication_lag" {
 resource "aws_cloudwatch_metric_alarm" "replication_failures" {
   alarm_name          = "sclr-replication-failed-operations"
   comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = 1
+  evaluation_periods  = 2   #period changed to 2
   metric_name         = "ReplicationFailedOperations"
   namespace           = "AWS/S3"
   period              = 60

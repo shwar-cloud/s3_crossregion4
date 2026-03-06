@@ -63,7 +63,7 @@ resource "aws_iam_policy" "sclr_replication_policy" {
         }
       },
 
-      Decrypt source objects with KMS
+      #Decrypt source objects with KMS
       {
         Sid    = "AllowDecryptOfSourceObjects"
         Effect = "Allow"

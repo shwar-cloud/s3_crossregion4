@@ -1,6 +1,5 @@
 variable "source_region" {
-
-  description = "AWS region for the source S3 bucket and KMS key"
+description = "AWS region for the source S3 bucket and KMS key"
   type        = string
 }
 
